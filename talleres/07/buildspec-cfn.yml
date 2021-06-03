@@ -4,6 +4,7 @@ phases:
   build:
     commands:
       - echo Ejecutar comando de validate-template
+      - aws cloudformation validate-template
 
 artifacts:
   # Archivos a exportar
