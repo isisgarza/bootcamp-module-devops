@@ -8,3 +8,6 @@ phases:
 
 artifacts:
   # Archivos a exportar
+  files:
+    - talleres/07/api-cfn-pipeline.yaml
+  discard-paths: yes
