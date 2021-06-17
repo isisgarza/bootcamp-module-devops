@@ -9,8 +9,19 @@ CORS(app)
 # The service basepath has a short response just to ensure that healthchecks
 # sent to the service root will receive a healthy response.
 @app.route("/")
+from flask import Flask, jsonify, json, Response, request
+from flask_cors import CORS
+
+# A very basic API created using Flask that has two possible routes for requests.
+
+app = Flask(__name__)
+CORS(app)
+
+# The service basepath has a short response just to ensure that healthchecks
+# sent to the service root will receive a healthy response.
+@app.route("/")
 def healthCheckResponse():
-    return jsonify({"message": "Version 1. Nothing here, used for health check. Try /mysfits instead."})
+    return jsonify({"message": "Version 2. Nothing here, used for health check. Try /mysfits instead."})
 
 # The main API resource that the next version of the Mythical Mysfits website
 # will utilize. It returns the data for all of the Mysfits to be displayed on
@@ -21,7 +32,7 @@ def healthCheckResponse():
 def getMysfits():
 
     # read the mysfits JSON from the listed file.
-    response = Response(open("mysfits-response.json").read())
+    response = Response(open("mysfits-response-v2.json").read())
 
     # set the Content-Type header so that the browser is aware that the response
     # is formatted as JSON and our frontend JavaScript code is able to
